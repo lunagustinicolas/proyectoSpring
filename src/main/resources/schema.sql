@@ -4,7 +4,7 @@
 -- Al correr los tests, se cuenta con una base con datos de prueba listos para
 -- ser usados. Cuando termina la ejecución de las pruebas la base de datos deja
 -- de existir y todos los datos se pierden.
-
+/*
 DROP TABLE IF EXISTS pais;
 DROP TABLE IF EXISTS provincia;
 
@@ -41,4 +41,4 @@ INSERT INTO provincia VALUES (16, 1, 'Rio Negro');
 INSERT INTO provincia VALUES (17, 1, 'Salta');
 INSERT INTO provincia VALUES (18, 1, 'San Juan');
 INSERT INTO provincia VALUES (19, 1, 'San Luis');
-INSERT INTO provincia VALUES (20, 1, 'Santa Cruz');
+INSERT INTO provincia VALUES (20, 1, 'Santa Cruz');*/
