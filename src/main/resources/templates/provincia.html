@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link th:href="@{/vendor/twitter-bootstrap/css/bootstrap.min.css}" rel="stylesheet" type="text/css" />
+        <title>Provincias</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-12">
+                    <h1>Provincias</h1>
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Todos</h4>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Pais</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <th:block th:each="provincia : ${provincias}">
+                                <tr>
+                                    <td th:text="${provincia.id}"></td>
+                                    <td th:text="${provincia.nombre}"></td>
+                                    <td th:text ="${provincia.pais.nombre}"></td>
+                                </tr>
+                            </th:block>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <div id="mensajeNoEncontrado" class="alert alert-warning hide">
+                        <strong>No encontrado!</strong> No existe una provincia que coincida con la búsqueda.
+                    </div>
+                    <div class="input-group">
+                        <form th:action="@{/provinciasBuscadasContiene}"  method="post">
+                            <input type="text" th:value="${busqueda}" style="width:300px;" name="busqueda" placeholder="Ingrese provincia a buscar"/>
+                            <input type="submit" class = "btn btn-info"/>
+                        </form>
+                    </div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <th:block th:each="provinciaBuscada : ${provinciasBuscadasContiene}">
+                                <tr>
+                                    <td th:text="${provinciaBuscada.id}"></td>
+                                    <td th:text="${provinciaBuscada.nombre}"></td>
+                                    <td th:text ="${provinciaBuscada.pais.nombre}"></td>
+                                </tr>
+                            </th:block>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Lib JS -->
+        <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+        <script th:src="@{/vendor/twitter-bootstrap/js/bootstrap.min.js}"></script>
+    </body>
+</html>
+
